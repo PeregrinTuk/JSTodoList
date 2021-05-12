@@ -6,7 +6,7 @@ export default class AddNewToDo {
         this._addBtn = document.getElementById('addBtn');
     }
 
-    alertCheck(){
+    checkAlert(){
         if (this._title.value === '' || this._description.value === '') {
             this._alert.classList.remove('d-none');
             this._alert.innerText = 'Title and description are required';
@@ -17,10 +17,10 @@ export default class AddNewToDo {
         return true;
     }
 
-    onClick(callback){
+    clickedAdd(callback){
         this._addBtn.onclick = () => {
-            this.check = this.alertCheck();
-            if (this.check){
+            this.aletChecked = this.checkAlert();
+            if (this.aletChecked){
                 callback(this._title.value, this._description.value);
             }
         }

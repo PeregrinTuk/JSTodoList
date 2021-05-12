@@ -1,16 +1,43 @@
 export default class Model {
     constructor(){
         this.classView = null;
-        this.toDoList = [];
-        this.rowId = 0;
+        this.toDoList = JSON.parse(localStorage.getItem('toDoList'));
+        if (!this.toDoList || this.toDoList.length < 1) {
+            this.toDoList = [
+                {
+                    id: 0,
+                    title: 'Title',
+                    description: 'Description',
+                    completed: false,
+                }
+            ]
+        }
+        this.rowId = this.toDoList[this.toDoList.length -1].id + 1;
     }
 
     setView(view) {
         this.classView = view;
     }
 
-    getToDo() {
+    saveToLocalStorage() {
+        localStorage.setItem('toDoList', JSON.stringify(this.toDoList));
+    }
+
+    getToDoList() {
         return this.toDoList;
+    }
+
+    findToDo(id) {
+        return this.toDoList.findIndex((modelToDo) => modelToDo.id === id);
+    }
+
+    toggleCompleted(id) {
+        const toDoIndex = this.findToDo(id);
+        const toDo = this.toDoList[toDoIndex];
+        toDo.completed = !toDo.completed;
+        
+        this.saveToLocalStorage();
+        console.log(this.toDoList);
     }
 
     addToDo(title, description) {
@@ -29,7 +56,9 @@ export default class Model {
         }
 
         this.toDoList.push(modelToDo);
-        console.log(this.toDoList);
+        // console.log(this.toDoList);
+
+        this.saveToLocalStorage();
 
         // return Object.assign({}, modelToDo);
         // /!\Sintaxis antigua/!\
@@ -40,7 +69,9 @@ export default class Model {
     }
 
     removeToDo(id) {
-        const index = this.toDoList.findIndex((modelToDo) => modelToDo.id === id);
-        console.log(this.toDoList[index]);
+        const toDoIndex = this.findToDo(id);
+        this.toDoList.splice(toDoIndex, 1);
+        
+        this.saveToLocalStorage();
     }
 }
