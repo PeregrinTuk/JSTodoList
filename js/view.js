@@ -2,7 +2,7 @@ import AddNewToDo from './components/add-todo.js';
 
 export default class View {
     constructor() {
-        this.model = null;
+        this.classModel = null;
         this._table = document.getElementById('table');
         this.addNewToDo = new AddNewToDo();
 
@@ -10,16 +10,16 @@ export default class View {
     }
 
     setModel(model) {
-        this.model = model;
+        this.classModel = model;
     }
 
     addToDo(title, description){
-        const toDo = this.model.addToDo(title, description);
-        this.createRow(toDo);
+        const viewToDo = this.classModel.addToDo(title, description);
+        this.createRow(viewToDo);
     }
 
     removeToDo(id) {
-        this.model.removeToDo(id);
+        this.classModel.removeToDo(id);
         document.getElementById(id).remove();
     }
 
@@ -42,11 +42,11 @@ export default class View {
                 </button>
             </td>
         `;
-        const removeBtn = document.createElement('button');
-        removeBtn.classList.add('btn', 'btn-danger', 'mb-1', 'ml-1');
-        removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
-        removeBtn.onclick = () => this.removeToDo(toDo.id);
+        const trashBtn = document.createElement('button');
+        trashBtn.classList.add('btn', 'btn-danger', 'mb-1', 'ml-1');
+        trashBtn.innerHTML = '<i class="fa fa-trash"></i>';
+        trashBtn.onclick = () => this.removeToDo(viewToDo.id);
 
-        newRow.children[3].appendChild(removeBtn);
+        newRow.children[3].appendChild(trashBtn);
     }
 }

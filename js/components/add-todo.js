@@ -3,7 +3,7 @@ export default class AddNewToDo {
         this._alert = document.getElementById('alert');
         this._title = document.getElementById('title');
         this._description = document.getElementById('description');
-        this.addBtn = document.getElementById('add');
+        this._addBtn = document.getElementById('addBtn');
     }
 
     alertCheck(){
@@ -18,7 +18,7 @@ export default class AddNewToDo {
     }
 
     onClick(callback){
-        this.addBtn.onclick = () => {
+        this._addBtn.onclick = () => {
             this.check = this.alertCheck();
             if (this.check){
                 callback(this._title.value, this._description.value);

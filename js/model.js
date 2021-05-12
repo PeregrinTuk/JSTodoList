@@ -1,20 +1,20 @@
 export default class Model {
     constructor(){
-        this.view = null;
+        this.classView = null;
         this.toDoList = [];
         this.rowId = 0;
     }
 
     setView(view) {
-        this.view = view;
+        this.classView = view;
     }
 
     getToDo() {
-        return this.toDos;
+        return this.toDoList;
     }
 
     addToDo(title, description) {
-        const toDo = {
+        const modelToDo = {
             id: this.rowId++,
             title: title,
             description: description,
@@ -28,19 +28,19 @@ export default class Model {
             completed: false,
         }
 
-        this.toDoList.push(toDo);
+        this.toDoList.push(modelToDo);
         console.log(this.toDoList);
 
-        // return Object.assign({}, toDo);
+        // return Object.assign({}, modelToDo);
         // /!\Sintaxis antigua/!\
-        //con ´Object.assign({}, toDo)´ estamos creando un objeto clon del ´toDo´. Hacemos esto para que no se vea afectado por los posibles cambios que se apliquen en el ´toDo´ del archivo view.js.  /!\ Sintaxis antigua de JS
-        return {...toDo};
+        //con ´Object.assign({}, modelToDo)´ estamos creando un objeto clon del ´modelToDo´. Hacemos esto para que no se vea afectado por los posibles cambios que se apliquen en el ´modelToDo´ del archivo view.js.  /!\ Sintaxis antigua de JS
+        return {...modelToDo};
         // Spread syntax
-        //Hace no mismo que ´Object.assign({}, toDo)´ pero con una sintaxis reducida.
+        //Hace no mismo que ´Object.assign({}, modelToDo)´ pero con una sintaxis reducida.
     }
 
     removeToDo(id) {
-        const index = this.toDoList.findIndex((toDo) => toDo.id === id);
+        const index = this.toDoList.findIndex((modelToDo) => modelToDo.id === id);
         console.log(this.toDoList[index]);
     }
 }

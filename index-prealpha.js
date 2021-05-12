@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const _alert = document.getElementById('alert');
     const _title = document.getElementById('title');
     const _description = document.getElementById('description');
-    const addBtn = document.getElementById('add');
+    const _addBtn = document.getElementById('addBtn');
     const _table = document.getElementById('table');
 
     let rowId = 1;
@@ -56,5 +56,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    addBtn.onclick = addToDo;
+    _addBtn.onclick = addToDo;
 });
