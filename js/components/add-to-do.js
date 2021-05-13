@@ -1,4 +1,4 @@
-export default class AddNewToDo {
+export default class NewToDo {
     constructor() {
         this._alert = document.getElementById('alert');
         this._title = document.getElementById('title');
@@ -17,7 +17,7 @@ export default class AddNewToDo {
         return true;
     }
 
-    clickedAdd(callback){
+    clickedAddBtn(callback){
         this._addBtn.onclick = () => {
             this.aletChecked = this.checkAlert();
             if (this.aletChecked){

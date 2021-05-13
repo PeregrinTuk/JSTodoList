@@ -1,19 +1,20 @@
-import AddNewToDo from './components/add-todo.js';
+import NewToDo from './components/add-to-do.js';
 
 export default class View {
     constructor() {
+        const newToDo = new NewToDo();
+
         this.classModel = null;
         this._table = document.getElementById('table');
-        this.addNewToDo = new AddNewToDo();
 
-        this.addNewToDo.clickedAdd((title, description) => this.addToDo(title, description));
+        newToDo.clickedAddBtn((title, description) => this.addToDo(title, description));
     }
 
     setModel(model) {
         this.classModel = model;
     }
 
-    renderFromLocalStorage() {
+    renderToDoList() {
         const toDoList = this.classModel.getToDoList();
         // for (const toDo of toDoList){
         //     this.createRow(toDo);

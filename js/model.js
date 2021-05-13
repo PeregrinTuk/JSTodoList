@@ -1,17 +1,22 @@
+import BrowserStorage from './components/browser-storage.js';
+
 export default class Model {
     constructor(){
+        const browserStorage = new BrowserStorage();
+
         this.classView = null;
-        this.toDoList = JSON.parse(localStorage.getItem('toDoList'));
-        if (!this.toDoList || this.toDoList.length < 1) {
-            this.toDoList = [
-                {
-                    id: 0,
-                    title: 'Title',
-                    description: 'Description',
-                    completed: false,
-                }
-            ]
-        }
+        this.toDoList = browserStorage.getToDoList();
+        // this.toDoList = JSON.parse(localStorage.getItem('toDoList'));
+        // if (!this.toDoList || this.toDoList.length < 1) {
+        //     this.toDoList = [
+        //         {
+        //             id: 0,
+        //             title: 'Title',
+        //             description: 'Description',
+        //             completed: false,
+        //         }
+        //     ]
+        // }
         this.rowId = this.toDoList[this.toDoList.length -1].id + 1;
     }
 
@@ -19,9 +24,9 @@ export default class Model {
         this.classView = view;
     }
 
-    saveToLocalStorage() {
-        localStorage.setItem('toDoList', JSON.stringify(this.toDoList));
-    }
+    // saveToLocalStorage() {
+    //     localStorage.setItem('toDoList', JSON.stringify(this.toDoList));
+    // }
 
     getToDoList() {
         return this.toDoList;
@@ -36,7 +41,8 @@ export default class Model {
         const toDo = this.toDoList[toDoIndex];
         toDo.completed = !toDo.completed;
         
-        this.saveToLocalStorage();
+        //this.saveToLocalStorage();
+        browserStorage.saveToDoList();
         console.log(this.toDoList);
     }
 
@@ -58,7 +64,8 @@ export default class Model {
         this.toDoList.push(modelToDo);
         // console.log(this.toDoList);
 
-        this.saveToLocalStorage();
+        //this.saveToLocalStorage();
+        browserStorage.saveToDoList();
 
         // return Object.assign({}, modelToDo);
         // /!\Sintaxis antigua/!\
@@ -72,6 +79,7 @@ export default class Model {
         const toDoIndex = this.findToDo(id);
         this.toDoList.splice(toDoIndex, 1);
         
-        this.saveToLocalStorage();
+        //this.saveToLocalStorage();
+        browserStorage.saveToDoList();
     }
 }
