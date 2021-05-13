@@ -1,6 +1,6 @@
 import Alert from './alert.js';
 
-export default class NewToDo {
+export default class AddNewToDo {
     constructor() {
         this.alert = new Alert('alert');        
         // this._alert = document.getElementById('alert');

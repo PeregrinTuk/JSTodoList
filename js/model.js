@@ -20,15 +20,6 @@ export default class Model {
         return this.toDoList.findIndex((modelToDo) => modelToDo.id === id);
     }
 
-    toggleCompleted(id) {
-        const toDoIndex = this.findToDo(id);
-        const toDo = this.toDoList[toDoIndex];
-        toDo.completed = !toDo.completed;
-        
-        this.browserStorage.saveToDoList();
-        console.log(this.toDoList);
-    }
-
     addToDo(title, description) {
         const modelToDo = {
             id: this.rowId++,
@@ -41,6 +32,27 @@ export default class Model {
         this.browserStorage.saveToDoList();
         
         return {...modelToDo};
+    }
+
+    toggleCompleted(id) {
+        const toDoIndex = this.findToDo(id);
+        const toDo = this.toDoList[toDoIndex];
+        toDo.completed = !toDo.completed;
+        
+        this.browserStorage.saveToDoList();
+        console.log(this.toDoList);
+    }
+
+    editToDo(id, values) {
+        // const toDoToEdit = this.toDoList[this.findToDo(id)];
+        // toDoToEdit.title = values.title;
+        // toDoToEdit.description = values.description;
+        // toDoToEdit.completed = values.completed;
+        //// Podemos hacer lo mismo que arriba usando el metodo ´Object´ y alignandole de forma global los ´values´ que recivimos en los parentesis de la función, en lugar de tener que ir asignandolos de uno en uno.
+        const toDoIndex = this.findToDo(id);
+        Object.assign(this.toDoList[toDoIndex], values);
+
+        this.browserStorage.saveToDoList();
     }
 
     removeToDo(id) {
