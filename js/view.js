@@ -2,12 +2,11 @@ import NewToDo from './components/add-to-do.js';
 
 export default class View {
     constructor() {
-        const newToDo = new NewToDo();
-
+        this.newToDo = new NewToDo();
         this.classModel = null;
         this._table = document.getElementById('table');
 
-        newToDo.clickedAddBtn((title, description) => this.addToDo(title, description));
+        this.newToDo.clickedAddBtn((title, description) => this.addToDo(title, description));
     }
 
     setModel(model) {
@@ -16,10 +15,6 @@ export default class View {
 
     renderToDoList() {
         const toDoList = this.classModel.getToDoList();
-        // for (const toDo of toDoList){
-        //     this.createRow(toDo);
-        // }
-        // Podemos hacer lo mismo pero en lugar de con un bucle ´for´ con el método ´forEach´
         toDoList.forEach((toDo) => this.createRow(toDo));
     }
 
