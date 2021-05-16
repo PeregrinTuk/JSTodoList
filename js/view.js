@@ -5,30 +5,30 @@ export default class View {
     constructor() {
         this.addNewToDo = new AddNewToDo();
         this.modal = new Modal();
-        this.classModel = null;
+        this.model = null;
         this._table = document.getElementById('table');
 
         this.addNewToDo.clickedAddBtn((title, description) => this.addToDo(title, description));
         this.modal.clickedSaveBtn((id, values) => this.editToDo(id, values));
     }
 
-    setModel(model) {
-        this.classModel = model;
+    setModel(className) {
+        this.model = className;
     }
 
     renderToDoList() {
-        const toDoList = this.classModel.getToDoList();
+        const toDoList = this.model.getToDoList();
         toDoList.forEach((toDo) => this.createToDo(toDo));
     }
 
     toggleCompleted(id) {
-        this.classModel.toggleCompleted(id);
+        this.model.toggleCompleted(id);
     }
 
     editToDo(id, values) {
         // console.log(id);
         // console.log(values);
-        this.classModel.editToDo(id, values);
+        this.model.editToDo(id, values);
         const toDoToEdit = document.getElementById(id);
         toDoToEdit.children[0].innerText = values.title;
         toDoToEdit.children[1].innerText = values.description;
@@ -36,7 +36,7 @@ export default class View {
     }
 
     removeToDo(id) {
-        this.classModel.removeToDo(id);
+        this.model.removeToDo(id);
         document.getElementById(id).remove();
     }
 
@@ -50,7 +50,7 @@ export default class View {
             <td class="text-right"></td>
         `;
 
-        const completedCheckbox =document.createElement('input');
+        const completedCheckbox = document.createElement('input');
         completedCheckbox.type = 'checkbox';
         completedCheckbox.checked = toDo.completed;
         completedCheckbox.onclick = () => this.toggleCompleted(toDo.id);
@@ -73,7 +73,7 @@ export default class View {
     }
 
     addToDo(title, description){
-        const viewToDo = this.classModel.addToDo(title, description);
+        const viewToDo = this.model.addToDo(title, description);
         this.createToDo(viewToDo);
     }
 }

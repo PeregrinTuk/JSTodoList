@@ -23,7 +23,9 @@ export default class AddNewToDo {
 
     clickedAddBtn(callback){
         this._addBtn.onclick = () => {
-            const condition = this._title.value === '' || this._description.value === '';
+            // const condition = this._title.value === '' || this._description.value === '';
+            const condition = !this._title.value || !this._description.value;
+            // ^ Al usar la negación ´!´ sacamos el valor ´truthy/falsy´  de estas variables.
             const message = 'Title and description are required';
             this.aletChecked = this.alert.checkAlert(condition, message);
             if (this.aletChecked){
