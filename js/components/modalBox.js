@@ -1,6 +1,6 @@
 import Alert from "./alert.js";
 
-export default class Modal {
+export default class ModalBox {
     constructor() {
         this.alert = new Alert('modal-alert');
         this.toDoToEdit = null;
@@ -17,11 +17,10 @@ export default class Modal {
         this._modalCompleted.checked = toDo.completed;
     }
 
-    clickedSaveBtn(callback){
+    clickSaveBtn(callback){
         this._modalSaveBtn.onclick = () => {
-            // const condition = this._title.value === '' || this._description.value === '';
-            const condition = !this._title.value || !this._description.value;
-            // ^ Al usar la negación ´!´ sacamos el valor ´truthy/falsy´  de estas variables.
+            const condition = !this._modalTitle.value || !this._modalDescription.value;
+            // ^ Al usar la negación ´!´ sacamos el valor ´truthy/falsy´ de estas variables, ahorrandonos usar la igualdad absoluta -> ´this._title.value === '' || this._description.value === ''´.
             const message = 'Title and description are required';
             this.aletChecked = this.alert.checkAlert(condition, message);
             if (this.aletChecked){
@@ -33,13 +32,6 @@ export default class Modal {
 
                 $('#modal').modal('toggle'); // Funcion de Bootstrap mediante jQuery para ocultar el ´modal´ al pulsar el botón de ´save´
             }
-
-
-            // callback(this.toDoToEdit.id, {
-            //     title: this._modalTitle.value,
-            //     description: this._modalDescription.value,
-            //     completed: this._modalCompleted.checked,
-            // });
         }
     }
 }

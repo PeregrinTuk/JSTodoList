@@ -1,4 +1,7 @@
 export default class BrowserStorage {
+    constructor() {
+        this.toDoList = null;
+    }
         
     saveToDoList() {
         localStorage.setItem('toDoList', JSON.stringify(this.toDoList));

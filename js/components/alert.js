@@ -4,9 +4,8 @@ export default class Alert {
     }
 
     showAlert(message) {
-            this._alert.classList.remove('d-none');
-            this._alert.innerText = message;
-            // console.error(message);
+        this._alert.classList.remove('d-none');
+        this._alert.innerText = message;
     }
     
     checkAlert(condition, message){

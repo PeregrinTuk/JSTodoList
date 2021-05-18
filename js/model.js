@@ -40,18 +40,12 @@ export default class Model {
         toDo.completed = !toDo.completed;
         
         this.browserStorage.saveToDoList();
-        // console.log(this.toDoList);
     }
 
     editToDo(id, values) {
-        // const toDoToEdit = this.toDoList[this.findToDo(id)];
-        // toDoToEdit.title = values.title;
-        // toDoToEdit.description = values.description;
-        // toDoToEdit.completed = values.completed;
-        //// Podemos hacer lo mismo que arriba usando el metodo ´Object´ y asignandole de forma global los ´values´ que recivimos en los parentesis de la función, en lugar de tener que ir asignandolos de uno en uno.
         const toDoIndex = this.findToDo(id);
         Object.assign(this.toDoList[toDoIndex], values);
-
+        // ^ Con el metodo ´Object´ le asignamos al ´toDo´ selecionado los ´values´ que recivimos en los parentesis de la función, sin necesidad de tener que ir asignandolos de uno en uno.
         this.browserStorage.saveToDoList();
     }
 
