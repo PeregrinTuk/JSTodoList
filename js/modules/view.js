@@ -10,19 +10,12 @@ export default class View {
         this.searcher = new Searcher();
         this.newToDo = new NewToDo();
         this.modalBox = new ModalBox();
-        // this.model = null;
         this._newTitle = document.getElementById('title-input');
         this._newDescription = document.getElementById('description-input');
         this._table = document.getElementById('table');
 
-        // this.newToDo.clickAddBtn((title, description) => this.addToDo(title, description));
-        this.modalBox.clickSaveBtn((id, values) => this.editToDo(id, values));
         // this.searcher.clickSearchBtn((filters) => this.searchToDo(filters));
     }
-
-    // setModel(className) {
-    //     this.model = className;
-    // }
 
     renderToDoList(classModel) {
         const toDoList = classModel.getToDoList();
@@ -34,32 +27,48 @@ export default class View {
     }//v0.2
 
     checkAddAlert() {
-        const alertCondition = !this._newTitle.value || !this._newDescription.value;
-        const alertMessage = 'Title and description are required';
-        const alertChecked = this.addAlert.checkAlert(alertCondition, alertMessage);
-
-        return alertChecked;
+        return this.addAlert.checkAlert();
     }//v0.2
 
-    addToDo(title, description){
-        const viewToDo = this.model.addToDo(title, description);
-        this.renderToDo(viewToDo);
-    }
+    checkModalAlert() {
+        return this.modalAlert.checkAlert();
+    }//v0.2
 
-    toggleCompleted(id) {
-        this.model.toggleCompleted(id);
-    }
+    renderNewToDo(toDo){
+        this.newToDo.renderToDo(toDo);
+    }//v0.2
 
-    editToDo(id, values) {
-        this.model.editToDo(id, values);
+    openModalBox(toDo) {
+        this.modalBox.setValues(toDo);
+    }//v0.2
+
+    handleSaveBtn(toDo) {
+        const toDoId = toDo.id;
+        this.modalBox.returnNewValues((values) => this.renderEditedToDo(toDoId, values));
+
+        $('#modal').modal('toggle');
+    }//v0.2
+    
+    renderEditedToDo(id, values) {
         const toDoToEdit = document.getElementById(id);
         toDoToEdit.children[0].innerText = values.title;
         toDoToEdit.children[1].innerText = values.description;
         toDoToEdit.children[2].children[0].checked = values.completed;
-    }
+    }//v0.2
+
+
+//-- WIP ------------------
+
+
+
 
     removeToDo(id) {
-        this.model.removeToDo(id);
         document.getElementById(id).remove();
     }
+
+
+
+
+//=========================
+
 }

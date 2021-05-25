@@ -1,37 +1,37 @@
-import Alert from "./alert.js";
+// import Alert from "./alert.js";
 
 export default class ModalBox {
     constructor() {
-        this.alert = new Alert('modal-alert');
-        this.toDoToEdit = null;
         this._modalTitle = document.getElementById('modal-title');
         this._modalDescription = document.getElementById('modal-description');
-        this._modalSaveBtn = document.getElementById('modal-btn');
         this._modalCompleted = document.getElementById('modal-completed');
     }
 
     setValues(toDo) {
-        this.toDoToEdit = toDo;
         this._modalTitle.value = toDo.title;
         this._modalDescription.value = toDo.description;
         this._modalCompleted.checked = toDo.completed;
-    }
+    }//v0.2
 
-    clickSaveBtn(callback){
-        this._modalSaveBtn.onclick = () => {
-            const condition = !this._modalTitle.value || !this._modalDescription.value;
-            // ^ Al usar la negación ´!´ sacamos el valor ´truthy/falsy´ de estas variables, ahorrandonos usar la igualdad absoluta -> ´this._title.value === '' || this._description.value === ''´.
-            const message = 'Title and description are required';
-            this.aletChecked = this.alert.checkAlert(condition, message);
-            if (this.aletChecked){
-                callback(this.toDoToEdit.id, {
-                    title: this._modalTitle.value,
-                    description: this._modalDescription.value,
-                    completed: this._modalCompleted.checked,
-                });
 
-                $('#modal').modal('toggle'); // Funcion de Bootstrap mediante jQuery para ocultar el ´modal´ al pulsar el botón de ´save´
-            }
-        }
-    }
+    returnNewValues(callback){
+        callback({
+            title: this._modalTitle.value,
+            description: this._modalDescription.value,
+            completed: this._modalCompleted.checked,
+        });
+    }//v0.2
+
+
+//-- WIP ------------------
+
+
+
+
+
+
+
+
+//=========================
+
 }
