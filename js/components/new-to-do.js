@@ -10,7 +10,7 @@ export default class NewToDo {
             title: this._newTitle.value,
             description: this._newDescription.value,
         };
-    }//v0.2
+    }
 
     createToDo(id, values) {
         const toDo = {
@@ -20,14 +20,14 @@ export default class NewToDo {
             completed: false,
         }
         return {...toDo};
-    }//v0.2
+    }
 
     renderToDo(toDo) {
         const newRow = this.createRow(toDo);
         this.createCompletedCbox(newRow, toDo);
         this.createEditBtn(newRow);
         this.createDeleteBtn(newRow)
-    }//v0.2
+    }
     
     createRow(toDo) {
         const newRow = this._table.insertRow();
@@ -39,7 +39,7 @@ export default class NewToDo {
             <td class="text-rigth"></td>
         `;
         return newRow;
-    }//v0.2
+    }
 
     createCompletedCbox(newRow, toDo) {
         const completedCbox = document.createElement('input');
@@ -47,7 +47,7 @@ export default class NewToDo {
         completedCbox.setAttribute('name', 'completedCbox');
         completedCbox.checked = toDo.completed;
         newRow.children[2].appendChild(completedCbox);
-    }//v0.2
+    }
 
     createEditBtn(newRow) {
         const editBtn = document.createElement('button');
@@ -58,14 +58,13 @@ export default class NewToDo {
         editBtn.innerHTML = '<i class="fa fa-pencil"></i>';
 
         newRow.children[3].appendChild(editBtn);
-    }//v0.2
+    }
 
     createDeleteBtn(newRow) {
         const deleteBtn = document.createElement('button');
         deleteBtn.classList.add('btn', 'btn-danger', 'mb-1', 'ml-1');
         deleteBtn.setAttribute('name', 'deleteBtn');
         deleteBtn.innerHTML = '<i class="fa fa-trash"></i>';
-        // deleteBtn.onclick = () => this.removeToDo(toDo.id);
 
         newRow.children[3].appendChild(deleteBtn);
     }

@@ -13,7 +13,7 @@ export default class Alert {
     showAlert() {
         this._alert.classList.remove('d-none');
         this._alert.innerText = this.alerMessage;
-    }//v0.2
+    }
 
     assignCondition() {
         if(this.alertId === 'alert') {
@@ -21,7 +21,7 @@ export default class Alert {
         } else if(this.alertId === 'modal-alert') {
             this.alertCondition = !this._modalTitle.value || !this._modalDescription.value;
         }
-    }//v0.2
+    }
     
     checkAlert(){
         this.assignCondition();
@@ -31,5 +31,5 @@ export default class Alert {
         }
         this._alert.classList.add('d-none');
         return true;
-    }//v0.2
+    }
 }

@@ -8,17 +8,8 @@ export default class Controller {
         this._editBtnList = document.getElementsByName('editBtn');
         this._modalSaveBtn = document.getElementById('modal-btn');
         this._deleteBtnList = document.getElementsByName('deleteBtn');
-        
-        console.log(this.model.getToDoList());
-        console.log(this._editBtnList);
 
         this.view.renderToDoList(this.model);
-        // this.onClickSearchBtn();
-        // this.onClickAddBtn();
-        // this.onClickCompletedCbox();
-        // this.onClickEditBtn();
-        // // this.onClickSaveBtn();
-        // this.onClickDeleteBtn();
         this.callControllers();
     }
 
@@ -27,13 +18,12 @@ export default class Controller {
         this.onClickAddBtn();
         this.onClickCompletedCbox();
         this.onClickEditBtn();
-        // this.onClickSaveBtn();
         this.onClickDeleteBtn();
     }
 
     onClickSearchBtn() {
         this._searchBtn.onclick = () => this.view.searchToDo();
-    }//v0.2
+    }
 
     onClickAddBtn() {
         this._addBtn.onclick = () => {
@@ -44,8 +34,8 @@ export default class Controller {
                 this.callControllers();
             }
         }
-    }//v0.2
-    
+    }
+
     onClickCompletedCbox() {
         const controller = this;
         this._completedCboxList.forEach(function callback(completedCbox , index) {
@@ -56,7 +46,7 @@ export default class Controller {
                 controller.callControllers();
             }
         });
-    }//v0.2
+    }
 
     onClickSaveBtn(toDo) {
         this._modalSaveBtn.onclick = () => {
@@ -65,13 +55,7 @@ export default class Controller {
                 this.view.handleSaveBtn(toDo);
             }
         }
-    }//v0.2
-
-    
-
-//-- WIP ------------------
-    
-
+    }
 
     onClickEditBtn() {
         const controller = this;
@@ -86,8 +70,7 @@ export default class Controller {
                 controller.callControllers();
             }
         });
-    }//0.2
-
+    }
 
     onClickDeleteBtn() {
         const controller = this;
@@ -101,12 +84,5 @@ export default class Controller {
                 controller.callControllers();
             }
         });
-    }//0.2
-
-
-
-
-
-//=========================
-    
+    }   
 }
