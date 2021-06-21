@@ -1,3 +1,6 @@
+// ------
+// This module contains the features responsible for showing the app's data.
+// -
 import Alert from '../components/alert.js';
 import NewToDo from '../components/new-to-do.js';
 import ModalBox from '../components/modal-box.js';

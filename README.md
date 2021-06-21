@@ -19,10 +19,10 @@ To run the app, you need:
   - Any browser (except Internet Explorer)
 
 Instructions to use:
-  1 - Clone or download the repository on your computer.
-  2 - Open the terminal of the OS, the command prompt, Git Bash or the terminal of your trusty IED.
-  3 - On your terminal, go to the repository’s folder that you just cloned/downloaded.
-  4 - Run this command:  node js/server.js
-  5 - Open, on your browser, the localhost:3000
+  1- Clone or download the repository on your computer.
+  2- Open the terminal of the OS, the command prompt, Git Bash or the terminal of your trusty IED.
+  3- On your terminal, go to the repository’s folder that you just cloned/downloaded.
+  4- Run this command:  node js/server.js
+  5- Open, on your browser, the localhost:3000
 
 ------------

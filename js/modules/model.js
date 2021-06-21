@@ -1,3 +1,6 @@
+// ------
+// This module contains the features responsible for managing the app's data.
+// -
 import BrowserStorage from '../components/storage.js';
 import NewToDo from '../components/new-to-do.js';
 import ModalBox from '../components/modal-box.js';
