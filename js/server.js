@@ -1,3 +1,6 @@
+// ------
+// This file uses Express (a framework for Node.js) to generate a local host.
+// -
 const express = require('express');
 const app = express();
 

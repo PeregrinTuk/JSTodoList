@@ -1,3 +1,6 @@
+// ------
+// This module contains the features related to the interaction between the user and app.
+// -
 export default class Controller {
     constructor(classModel, classView) {
         this.model = classModel;
