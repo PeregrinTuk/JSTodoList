@@ -1,7 +1,16 @@
-------------
-ABSTRACT
--
+# JS ToDo List ✔✔
+
+***
+#### Table of Contens
+1. General Info
+2. Technologies
+3. Manual
+4. Collaboration
+***
+
+## General Info
 Hi!!! ;)
+
 This TodoList is a little project made to learn and experiment with JavaScript and Node.js
 It was suggested by 4tomik, and I resolved to replan his architecture and implement any way to get a local server with Node.js inside the app's repository.
 
@@ -11,18 +20,24 @@ I used the MVC pattern as the basis to restructure the software architecture, be
 
 To facilitate running the local host, I used Express, framework of Node.js, to make a little file that allows to create a localhost to show the app on port 3000.
 
-------------
-MANUAL
--
-To run the app, you need:
+## Technologies
+- JavaScript
+- Node.js
+- Express
+
+## Manual
+To run the app, it's necessaty to have instaled:
   - Node.js
   - Any browser (except Internet Explorer)
 
 Instructions to use:
-  1- Clone or download the repository on your computer.
-  2- Open the terminal of the OS, the command prompt, Git Bash or the terminal of your trusty IED.
-  3- On your terminal, go to the repository’s folder that you just cloned/downloaded.
-  4- Run this command:  node js/server.js
-  5- Open, on your browser, the localhost:3000
+  1. Do a Fork.
+  2. Clone the repository on your computer.
+  3. Open the command prompt/ terminal/ Git Bash on the local repository’s folder.
+  4. Run this command: `node js/server.js`
+  5. Open your trusty browser and go to port `localhost:3000`
 
-------------
+> NOTE: To end the execution of `server.js`, use `Ctrl + C` on the command prompt/ terminal/ Git Bash.
+
+## Collaboration
+If you want to collaborate with this project, you are free to make any suggestion by opening a Discussion, an Issue or a Pull request. ;D

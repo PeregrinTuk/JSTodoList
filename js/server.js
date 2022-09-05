@@ -3,9 +3,16 @@
 // -
 const express = require('express');
 const app = express();
+const message = '\n/########################################\\' +
+                '\n|         LOCAL SERVER LISTENING         |' +
+                '\n| -----         ----------         ----- |' +
+                '\n|  > PORT => localhost:3000              |' +
+                '\n|  > Now you can use our TodoList app    |' +
+                '\n|  > ;D                                  |' +
+                '\n\\########################################/';
 
 app.use(express.static(__dirname + '/../'));
 
 app.listen('3000', function() {
-  console.log('\n/###########################################\\\n|  > Local server listening on port 3000    |\n| ---              -------              --- |\n|  > Now you can use our TodoList app on    |\n|    localhost:3000                         |\n|  > ;D                                     |\n\\###########################################/');
+  console.log(message);
 });
