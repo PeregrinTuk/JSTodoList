@@ -2,10 +2,10 @@
 
 ***
 #### Table of Contens
-1. General Info
-2. Technologies
-3. Manual
-4. Collaboration
+1. [General Info](#general-info)
+2. [Technologies](#technologies)
+3. [Manual](#manual)
+4. [Collaboration](#collaboration)
 ***
 
 ## General Info
@@ -27,7 +27,7 @@ To facilitate running the local host, I used Express, framework of Node.js, to m
 
 ## Manual
 To run the app, it's necessaty to have instaled:
-  - Node.js
+  - [Node.js](https://nodejs.org/)
   - Any browser (except Internet Explorer)
 
 Instructions to use:
@@ -37,7 +37,7 @@ Instructions to use:
   4. Run this command: `node js/server.js`
   5. Open your trusty browser and go to port `localhost:3000`
 
-> NOTE: To end the execution of `server.js`, use `Ctrl + C` on the command prompt/ terminal/ Git Bash.
+> NOTE: To end the execution of `server.js`, use `Ctrl`+`C` on the command prompt/ terminal/ Git Bash.
 
 ## Collaboration
 If you want to collaborate with this project, you are free to make any suggestion by opening a Discussion, an Issue or a Pull request. ;D
