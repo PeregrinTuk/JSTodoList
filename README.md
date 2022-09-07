@@ -26,7 +26,7 @@ To facilitate running the local host, I used Express, framework of Node.js, to m
 - Express
 
 ## Manual
-To run the app, it's necessaty to have instaled:
+To run the app, it's necessaty to have installed:
   - [Node.js](https://nodejs.org/)
   - Any browser (except Internet Explorer)
 
@@ -40,4 +40,4 @@ Instructions to use:
 > NOTE: To end the execution of `server.js`, use `Ctrl`+`C` on the command prompt/ terminal/ Git Bash.
 
 ## Collaboration
-If you want to collaborate with this project, you are free to make any suggestion by opening a Discussion, an Issue or a Pull request. ;D
+If you want to collaborate with this project, feel free to make any suggestion by opening a Discussion, an Issue or a Pull request. ;D
