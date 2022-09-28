@@ -20,6 +20,9 @@ I used the MVC pattern as the basis to restructure the software architecture, be
 
 To facilitate running the local host, I used Express, framework of Node.js, to make a little file that allows to create a localhost to show the app on port 3000.
 
+## Project status
+Completed
+
 ## Technologies
 - JavaScript
 - Node.js
